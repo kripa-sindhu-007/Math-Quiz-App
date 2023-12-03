@@ -1,0 +1,77 @@
+<OptionButton>
+    font_name: "LuckiestGuy"
+    font_size: "40sp"
+    background_color: 1,1,1,0
+    bg_color: 40/255, 6/255, 109/255, 1
+    on_release: app.quiz(self.text, self)
+    canvas.before:
+        Color:
+            rgb: root.bg_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.x,self.y+5
+            radius: [10]
+
+
+MDScreen:
+    question: question
+    name: "quiz"
+    MDFloatLayout:
+        md_bg_color: rgba(60,12,156,255)
+        MDLabel:
+            id: question
+            text:""
+            font_name:"LuckiestGuy"
+            font_size:"60sp"
+            halign:"center"
+            pos_hint:{"center_x": .5, "center_y": .86}
+            color: 1,1,1,1
+            line_height: 1.1
+        MDGridLayout:
+            rows: 2
+            cols: 2
+            size_hint: .6,.3
+            pos_hint:{"center_x": .5, "center_y": .59}
+            spacing: 15
+            OptionButton:   
+                id: option1               
+            OptionButton:
+                id: option2
+            OptionButton:
+                id: option3
+            OptionButton:
+                id: option4
+
+        Button:
+            text: "Next"
+            font_name: "LuckiestGuy"
+            font_size: "40sp"
+            size_hint: .55,.12
+            pos_hint: {"center_x": .5 ,"center_y": .27}
+            color: rgba(251, 187, 29,255)
+            background_color: 1,1,1,0
+            on_release:
+                app.next_question()
+            canvas.before:
+                Color:
+                    rgb: 1,1,1,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y+5
+                    radius: [10]
+        Button:
+            text: "Quit"
+            font_name: "LuckiestGuy"
+            font_size: "40sp"
+            size_hint: .55,.12
+            pos_hint: {"center_x": .5 ,"center_y": .12}
+            background_color: 1,1,1,0
+            on_release:
+                app.final_score()
+            canvas.before:
+                Color:
+                    rgb: rgba(251,187,29,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y+5
+                    radius: [10]

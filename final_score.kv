@@ -1,0 +1,82 @@
+MDScreen:
+    correct: correct
+    wrong: wrong
+    success_rate: success_rate
+    name: "final_score"
+    MDFloatLayout:
+        md_bg_color:rgba(60,12,156,255)
+        MDLabel:
+            text:"Final\nScore!!"
+            font_name:"LuckiestGuy"
+            font_size:"55sp"
+            halign:"center"
+            pos_hint:{"center_x": .5, "center_y": .82}
+            color: 1,1,1,1
+            line_height: 1.1
+        MDLabel:
+            id: correct
+            text:""
+            font_name:"LuckiestGuy"
+            font_size:"35sp"
+            halign:"center"
+            size_hint: .8,.12
+            pos_hint:{"center_x": .5, "center_y": .6}
+            color: 1,1,1,1
+            line_height: 1.1
+            canvas.before:
+                Color:
+                    rgba: 0,1,0,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x,self.y+5
+                    radius: [10]
+        MDLabel:
+            id: wrong
+            text:"!"
+            font_name:"LuckiestGuy"
+            font_size:"35sp"
+            halign:"center"
+            size_hint: .8,.12
+            pos_hint:{"center_x": .5, "center_y": .46}
+            color: 1,1,1,1
+            line_height: 1.1
+            canvas.before:
+                Color:
+                    rgba: 1,0,0,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x,self.y+5
+                    radius: [10]
+        MDLabel:
+            id: success_rate
+            text:""
+            font_name:"LuckiestGuy"
+            font_size:"35sp"
+            halign:"center"
+            size_hint: .8,.12
+            pos_hint:{"center_x": .5, "center_y": .32}
+            color: 1,1,1,1
+            line_height: 1.1
+            canvas.before:
+                Color:
+                    rgba: rgba(40,6,109,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x,self.y+5
+                    radius: [10]
+        Button:
+            text: "Re-play!"
+            font_name: "LuckiestGuy"
+            font_size: "40sp"
+            size_hint: .6,.12
+            pos_hint: {"center_x": .5 ,"center_y": .12}
+            background_color:1,1,1,0
+            on_release:
+                app.replay()
+            canvas.before:
+                Color:
+                    rgb: rgba(251,187,29,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.x, self.y+5
+                    radius: [10]
